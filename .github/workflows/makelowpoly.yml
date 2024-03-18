@@ -9,7 +9,12 @@ on:
       targetfaces:
         description: 'Target number of faces for the low poly model'
         required: false
-        default: 7500
+        default: 1000
+      textureResolution:
+        description: 'Texture resolution size'
+        required: false
+        default: '1024x1024'
+      
 
 jobs:
   build:
@@ -19,7 +24,6 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
-  
 
       - name: Set up Python
         uses: actions/setup-python@v4
