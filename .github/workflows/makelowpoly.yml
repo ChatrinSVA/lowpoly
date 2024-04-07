@@ -41,7 +41,7 @@ jobs:
 
       - name: Convert to Low Poly
         run: |
-          python lowpoly.py ${{ github.event.inputs.filename }} --target_faces ${{ github.event.inputs.target_faces }} --texture_resolution ${{ github.event.inputs.texture_resolution }} --multiresolution_levels ${{ github.event.inputs.multiresolution_levels }}
+          python lowpoly.py ${{ github.event.inputs.filename }} --target-faces ${{ github.event.inputs.target_faces }} --texture_resolution ${{ github.event.inputs.texture_resolution }} --multiresolution_levels ${{ github.event.inputs.multiresolution_levels }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
