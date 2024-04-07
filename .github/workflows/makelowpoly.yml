@@ -3,7 +3,7 @@ name: Make Low Poly GLB
 on:
   workflow_dispatch:
     inputs:
-      file_path:
+      filename:
         description: 'Input file to convert to low poly GLB'
         required: true
       target_faces:
