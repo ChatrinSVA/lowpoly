@@ -14,7 +14,7 @@ def main(file_path: str = typer.Option(..., help='Input file to convert to low p
          target_faces: int = typer.Option(7500, help='Target number of faces for the low poly model'),
          texture_resolution: int = typer.Option(2048, help='Texture resolution size'),
          multiresolution_levels: int = typer.Option(3, help='Multiresolution levels')):
-
+    pass
 
 def set_smooth_shading(obj):
     obj.select_set(True)
@@ -22,10 +22,6 @@ def set_smooth_shading(obj):
     #        obj.data.polygons.foreach_set('use_smooth',  [True] * len(obj.data.polygons))
     #        bpy.context.object.data.update()
     bpy.ops.object.shade_smooth()
-
-
-def import_fbx(file_path):
-    bpy.ops.import_scene.fbx(filepath=file_path)
 
 
 def import_glb(file_path):
