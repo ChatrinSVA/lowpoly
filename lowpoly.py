@@ -24,6 +24,10 @@ def set_smooth_shading(obj):
     bpy.ops.object.shade_smooth()
 
 
+def import_fbx(file_path):
+    bpy.ops.import_scene.fbx(filepath=file_path)
+
+
 def import_glb(file_path):
     bpy.ops.import_scene.gltf(filepath=file_path)
 
@@ -34,6 +38,7 @@ def import_obj(file_path):
 
 def import_usdz(file_path):
     bpy.ops.wm.usd_import(filepath=file_path)
+
 
 
 @app.command()
