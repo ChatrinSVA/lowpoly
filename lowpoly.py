@@ -7,6 +7,29 @@ import addon_utils
 
 app = typer.Typer()
 
+def main(file_path: str = typer.Option(..., help='Input file to convert to low poly GLB'),
+         target_faces: int = typer.Option(7500, help='Target number of faces for the low poly model'),
+         texture_resolution: int = typer.Option(2048, help='Texture resolution size'),
+         multiresolution_levels: int = typer.Option(3, help='Multiresolution levels')):
+
+    def enable_3d_printing_addon():
+        addon_utils.enable("object_print3d_utils")
+
+    def set_smooth_shading(obj):
+        obj.select_set(True)
+        bpy.context.view_layer.objects.active = obj
+        bpy.ops.object.shade_smooth()
+
+    def import_fbx(file_path):
+        bpy.ops.import_scene.fbx(filepath=file_path)
+
+    def import_glb(file_path):
+        bpy.ops.import_scene.gltf(filepath=file_path)
+
+    def import_obj(file_path):
+        bpy.ops.import_scene.obj(filepath=file_path)
+        
+app.command()(main)
 
 def enable_3d_printing_addon():
     # bpy.ops.wm.addon_enable(module="3d_print_tools")
